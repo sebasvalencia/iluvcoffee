@@ -1,7 +1,7 @@
 meta {
-  name: Create a coffee
+  name: Create a coffee (whitelist, forbidNonWhitelisted)
   type: http
-  seq: 3
+  seq: 4
 }
 
 post {
@@ -14,6 +14,7 @@ body:json {
   {
     "name": "Old Florida Roast",
     "brand":"Buddy Brew",
-    "flavors":["a"]
+    "flavors":["a"],
+    "garbage": "yes"
   }
 }
