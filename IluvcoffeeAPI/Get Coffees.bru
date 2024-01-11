@@ -5,7 +5,12 @@ meta {
 }
 
 get {
-  url: localhost:3000
+  url: http://localhost:3000/coffees?limit=2&offset=10
   body: none
   auth: none
+}
+
+query {
+  limit: 2
+  offset: 10
 }
