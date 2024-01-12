@@ -98,3 +98,39 @@ Generated Coffee table in PostgreSQL Database
 | name    | varchar |                            |
 | brand   | varchar |                            |
 | flavors | json    |                            |
+
+## Creating a TypeOrm Migration
+
+```bash
+npx typeorm migration:create src/migrations/CoffeeRefactor
+```
+
+## RUNNING MIGRATIONS
+
+- 💡 Remember 💡
+- You must BUILD your Nest project (so that everything is output to the `/dist/` folder,
+- before a Migration can run, it needs compilated files.
+
+## Compile project first
+
+```bash
+npm run build
+```
+
+## Run migration(s)
+
+```bash
+npx typeorm migration:run -d dist/typeorm-cli.config
+```
+
+## REVERT migration(s)
+
+```bash
+npx typeorm migration:revert -d dist/typeorm-cli.config
+```
+
+## Let TypeOrm generate migrations (for you)
+
+```bash
+npx typeorm migration:generate src/migrations/SchemaSync -d dist/typeorm-cli.config
+```
