@@ -75,6 +75,26 @@ Nest is [MIT licensed](LICENSE).
 ## Installation
 
 ```bash
-$ npm i class-validator class-transformer
+npm i class-validator class-transformer
 npm i @nestjs/mapped-types
+npm install @nestjs/typeorm typeorm pg
 ```
+
+## Docker-compose
+
+```bash
+# Start containers in detached / background mode
+docker-compose up -d
+
+# Stop containers
+docker-compose down
+```
+
+Generated Coffee table in PostgreSQL Database
+
+| coffee  |         |                            |
+| ------- | ------- | -------------------------- |
+| id      | int(11) | PRIMARY KEY AUTO_INCREMENT |
+| name    | varchar |                            |
+| brand   | varchar |                            |
+| flavors | json    |                            |
