@@ -8,6 +8,21 @@ import { Flavor } from './entities/flavor.entity/flavor.entity';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { COFFEE_BRANDS } from './coffees.constants';
 
+// @Injectable({ scope: Scope.REQUEST })
+// export class CoffeesService {
+//   constructor(@Inject(REQUEST) private request: Request) {} // 👈
+// }
+// Scope DEFAULT - This is assumed when NO Scope is entered like so: @Injectable() */
+// @Injectable({ scope: Scope.DEFAULT })
+
+/** 
+ * Scope TRANSIENT 
+  
+ * Transient providers are NOT shared across consumers. 
+ * Each consumer that injects a transient provider 
+ * will receive a new, dedicated instance of that provider. 
+ */
+
 @Injectable()
 export class CoffeesService {
   constructor(
