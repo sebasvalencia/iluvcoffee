@@ -78,6 +78,9 @@ Nest is [MIT licensed](LICENSE).
 npm i class-validator class-transformer
 npm i @nestjs/mapped-types
 npm install @nestjs/typeorm typeorm pg
+npm i @nestjs/config
+npm install --save-dev @types/hapi__joi
+npm install @hapi/joi
 ```
 
 ## Docker-compose

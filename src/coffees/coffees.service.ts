@@ -7,6 +7,10 @@ import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
 import { Flavor } from './entities/flavor.entity/flavor.entity';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { COFFEE_BRANDS } from './coffees.constants';
+import { ConfigService, ConfigType } from '@nestjs/config';
+import coffeesConfig from './config/coffees.config';
+
+type NewType = typeof coffeesConfig;
 
 // @Injectable({ scope: Scope.REQUEST })
 // export class CoffeesService {
@@ -32,8 +36,36 @@ export class CoffeesService {
     private readonly flavorRepository: Repository<Flavor>,
     private readonly dataSource: DataSource,
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
+    private readonly configService: ConfigService, // 👈
+    @Inject(coffeesConfig.KEY)
+    private coffeesConfiguration: ConfigType<NewType>,
   ) {
     console.log('coffeeBrands', coffeeBrands);
+    /* Accessing process.env variables from ConfigService */
+    // const databaseHost = this.configService.get<string>(
+    //   'DATABASE_HOST',
+    //   'localhost',
+    // );
+
+    /**
+     * Grabbing this nested property within our App - Custom Config files
+     * via "dot notation" (a.b)
+     */
+    const databaseHost = this.configService.get('database.host', 'localhost');
+    console.log('databaseHost: ', databaseHost);
+
+    // ⚠️ sub optimal ways of retrieving Config ⚠️
+
+    /* Grab coffees config within App */
+    const coffeesConfig = this.configService.get('coffees');
+    console.log(coffeesConfig);
+
+    /* Grab nested property within coffees config - more difficult to test */
+    const foo = this.configService.get('coffees.foo');
+    console.log(foo);
+
+    // Now strongly typed, and able to access properties via:
+    console.log('strongly typed: ', coffeesConfiguration.foo);
   }
 
   findAll(paginationQuery: PaginationQueryDto) {
