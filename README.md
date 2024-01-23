@@ -137,3 +137,28 @@ npx typeorm migration:revert -d dist/typeorm-cli.config
 ```bash
 npx typeorm migration:generate src/migrations/SchemaSync -d dist/typeorm-cli.config
 ```
+
+### Generate Filter with Nest CLI
+
+```bash
+nest g filter common/filters/http-exception
+```
+
+### Generate WrapResponseInterceptor with Nest CLI
+
+```bash
+nest g interceptor common/interceptors/wrap-response
+nest g interceptor common/interceptors/timeout
+```
+
+### Generate ParseIntPipe with Nest CLI
+
+```bash
+nest g pipe common/pipes/parse-int
+```
+
+### Generate LoggingMiddleware with Nest CLI
+
+```bash
+nest g middleware common/middleware/logging
+```

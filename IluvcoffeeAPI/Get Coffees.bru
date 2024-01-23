@@ -5,12 +5,16 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/coffees?limit=2&offset=10
+  url: http://localhost:3050/coffees
   body: none
   auth: none
 }
 
 query {
-  limit: 2
-  offset: 10
+  ~limit: 2
+  ~offset: 10
+}
+
+headers {
+  ~Authorization: postgres123
 }
