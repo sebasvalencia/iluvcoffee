@@ -162,3 +162,15 @@ nest g pipe common/pipes/parse-int
 ```bash
 nest g middleware common/middleware/logging
 ```
+
+### Installing @nestjs/swagger
+
+### & Swagger UI for Express.js (which our application uses)
+
+### 💡 Note: If your application is using Fastiy, install `fastify-swagger` instead
+
+###
+
+```bash
+npm install --save @nestjs/swagger swagger-ui-express
+```
