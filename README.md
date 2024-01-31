@@ -174,3 +174,27 @@ nest g middleware common/middleware/logging
 ```bash
 npm install --save @nestjs/swagger swagger-ui-express
 ```
+
+## For unit tests
+
+```bash
+npm run test
+```
+
+## For unit tests + collecting testing coverage
+
+```bash
+npm run test:cov
+```
+
+## For e2e tests
+
+```bash
+npm run test:e2e
+```
+
+## Run a unit test for a -specific- file pattern
+
+```bash
+npm run test:watch -- coffees.service
+```

@@ -35,37 +35,32 @@ export class CoffeesService {
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
     private readonly dataSource: DataSource,
-    @Inject(COFFEE_BRANDS) coffeeBrands: string[],
-    private readonly configService: ConfigService, // 👈
-    @Inject(coffeesConfig.KEY)
-    private coffeesConfiguration: ConfigType<NewType>,
+    // @Inject(COFFEE_BRANDS) coffeeBrands: string[],
+    // private readonly configService: ConfigService, // 👈
+    // @Inject(coffeesConfig.KEY)
+    // private coffeesConfiguration: ConfigType<NewType>,
   ) {
-    console.log('coffeeBrands', coffeeBrands);
+    // console.log('coffeeBrands', coffeeBrands);
     /* Accessing process.env variables from ConfigService */
     // const databaseHost = this.configService.get<string>(
     //   'DATABASE_HOST',
     //   'localhost',
     // );
-
     /**
      * Grabbing this nested property within our App - Custom Config files
      * via "dot notation" (a.b)
      */
-    const databaseHost = this.configService.get('database.host', 'localhost');
-    console.log('databaseHost: ', databaseHost);
-
+    // const databaseHost = this.configService.get('database.host', 'localhost');
+    // console.log('databaseHost: ', databaseHost);
     // ⚠️ sub optimal ways of retrieving Config ⚠️
-
     /* Grab coffees config within App */
-    const coffeesConfig = this.configService.get('coffees');
-    console.log(coffeesConfig);
-
+    // const coffeesConfig = this.configService.get('coffees');
+    // console.log(coffeesConfig);
     /* Grab nested property within coffees config - more difficult to test */
-    const foo = this.configService.get('coffees.foo');
-    console.log(foo);
-
+    // const foo = this.configService.get('coffees.foo');
+    // console.log(foo);
     // Now strongly typed, and able to access properties via:
-    console.log('strongly typed: ', coffeesConfiguration.foo);
+    // console.log('strongly typed: ', coffeesConfiguration.foo);
   }
 
   findAll(paginationQuery: PaginationQueryDto) {
